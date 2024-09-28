@@ -19,8 +19,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class FetchStrategy implements FetchStrategyInterface
 {
-    public function __construct(protected Client $client)
+    protected Client $client;
+
+    public function __construct()
     {
+        $this->client = new Client();
     }
 
     /**
