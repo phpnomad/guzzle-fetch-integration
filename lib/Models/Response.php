@@ -145,4 +145,9 @@ class Response implements ResponseInterface
             'error' => $this->errorMessage,
         ];
     }
+
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
 }

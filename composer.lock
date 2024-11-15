@@ -134,16 +134,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8"
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
                 "shasum": ""
             },
             "require": {
@@ -197,7 +197,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.0.3"
+                "source": "https://github.com/guzzle/promises/tree/2.0.4"
             },
             "funding": [
                 {
@@ -213,7 +213,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-18T10:29:17+00:00"
+            "time": "2024-10-17T10:06:22+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -391,12 +391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpnomad/cache.git",
-                "reference": "a01ba64188c28b291fdf0dbec8aa80a538ed676c"
+                "reference": "1e4e436ac4c75c3e07180a188a46d209a53d01b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpnomad/cache/zipball/a01ba64188c28b291fdf0dbec8aa80a538ed676c",
-                "reference": "a01ba64188c28b291fdf0dbec8aa80a538ed676c",
+                "url": "https://api.github.com/repos/phpnomad/cache/zipball/1e4e436ac4c75c3e07180a188a46d209a53d01b4",
+                "reference": "1e4e436ac4c75c3e07180a188a46d209a53d01b4",
                 "shasum": ""
             },
             "require": {
@@ -439,7 +439,7 @@
                 "source": "https://github.com/phpnomad/cache/tree/main",
                 "issues": "https://github.com/phpnomad/cache/issues"
             },
-            "time": "2024-02-13T07:32:34+00:00"
+            "time": "2024-10-28T16:31:25+00:00"
         },
         {
             "name": "phpnomad/di",
@@ -814,12 +814,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpnomad/rest.git",
-                "reference": "a790f631a71b63a9eb97a967e736cda3e314e494"
+                "reference": "b2e1213f443db0a3f0e9f31e6be06ba72fdf330d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpnomad/rest/zipball/a790f631a71b63a9eb97a967e736cda3e314e494",
-                "reference": "a790f631a71b63a9eb97a967e736cda3e314e494",
+                "url": "https://api.github.com/repos/phpnomad/rest/zipball/b2e1213f443db0a3f0e9f31e6be06ba72fdf330d",
+                "reference": "b2e1213f443db0a3f0e9f31e6be06ba72fdf330d",
                 "shasum": ""
             },
             "require": {
@@ -859,10 +859,10 @@
             ],
             "homepage": "https://github.com/phpnomad/core",
             "support": {
-                "source": "https://github.com/phpnomad/rest/tree/feature/lifterlms-integration",
+                "source": "https://github.com/phpnomad/rest/tree/main",
                 "issues": "https://github.com/phpnomad/rest/issues"
             },
-            "time": "2024-06-02T13:39:00+00:00"
+            "time": "2024-11-09T15:42:19+00:00"
         },
         {
             "name": "phpnomad/singleton",
@@ -1293,13 +1293,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpnomad/rest": 20,
         "phpnomad/di": 20,
-        "phpnomad/loader": 20
+        "phpnomad/loader": 20,
+        "phpnomad/rest": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
