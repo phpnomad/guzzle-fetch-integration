@@ -11,7 +11,7 @@
         "php-cs-fixer": "php-cs-fixer fix"
     },
     "require": {
-        "phpnomad/rest": "^1.0",
+        "phpnomad/rest": "^2.0",
         "phpnomad/di": "^1.0",
         "phpnomad/loader": "^1.0",
         "guzzlehttp/guzzle": "^7.9"
