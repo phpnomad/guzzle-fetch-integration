@@ -8,8 +8,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use PHPNomad\Guzzle\FetchIntegration\Models\Response;
-use PHPNomad\Rest\Interfaces\FetchStrategy as FetchStrategyInterface;
-use PHPNomad\Rest\Models\FetchPayload;
+use PHPNomad\Fetch\Interfaces\FetchStrategy as FetchStrategyInterface;
+use PHPNomad\Fetch\Models\FetchPayload;
 use PHPNomad\Rest\Exceptions\RestException;
 use Psr\Http\Message\ResponseInterface;
 

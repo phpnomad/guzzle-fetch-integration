@@ -5,7 +5,7 @@ namespace PHPNomad\Guzzle\FetchIntegration;
 use PHPNomad\Di\Interfaces\CanSetContainer;
 use PHPNomad\Di\Traits\HasSettableContainer;
 use PHPNomad\Loader\Interfaces\HasClassDefinitions;
-use PHPNomad\Rest\Interfaces\FetchStrategy;
+use PHPNomad\Fetch\Interfaces\FetchStrategy;
 
 class Initializer implements HasClassDefinitions, CanSetContainer
 {

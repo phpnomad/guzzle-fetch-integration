@@ -4,17 +4,17 @@
     "type": "package",
     "homepage": "https://github.com/phoenix/core",
     "readme": "README.md",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "license": "MIT",
     "scripts": {
         "php-cs-fixer": "php-cs-fixer fix"
     },
     "require": {
-        "phpnomad/rest": "^1.0",
+        "phpnomad/rest": "^2.0",
         "phpnomad/di": "^1.0",
         "phpnomad/loader": "^1.0",
-        "guzzlehttp/guzzle": "^7.9"
+        "guzzlehttp/guzzle": "^7.9",
+        "phpnomad/fetch": "^1.0",
+        "phpnomad/http": "^1.0"
     },
     "autoload": {
         "psr-4": {

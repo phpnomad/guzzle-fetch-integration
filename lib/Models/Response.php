@@ -2,7 +2,7 @@
 
 namespace PHPNomad\Guzzle\FetchIntegration\Models;
 
-use PHPNomad\Rest\Interfaces\Response as ResponseInterface;
+use PHPNomad\Http\Interfaces\Response as ResponseInterface;
 
 /**
  * Class Response
