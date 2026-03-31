@@ -10,7 +10,7 @@
     },
     "require": {
         "phpnomad/rest": "^2.0",
-        "phpnomad/di": "^1.0",
+        "phpnomad/di": "^2.0",
         "phpnomad/loader": "^1.0",
         "guzzlehttp/guzzle": "^7.9",
         "phpnomad/fetch": "^1.0",
