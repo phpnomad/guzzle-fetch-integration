@@ -13,7 +13,11 @@ jobs:
       - name: Clear composer cache
         run: composer clear-cache
       - uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php }}
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
+          php_version: ${{ matrix.php }}
+          vendored_phpunit_path: vendor/bin/phpunit
           configuration: phpunit.xml
