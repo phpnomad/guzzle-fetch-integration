@@ -30,6 +30,9 @@ final class ClosedLoopbackFailureContractTest extends TestCase
         } catch (RestException $exception) {
             self::assertSame(500, $exception->getCode());
             self::assertNotSame('', $exception->getMessage());
+            self::assertStringContainsString($address, $exception->getMessage());
+            self::assertIsArray($exception->getContext());
+            self::assertNotSame([], $exception->getContext());
         }
     }
 }
