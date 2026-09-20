@@ -43,6 +43,33 @@ final class ResponseJsonContractTest extends TestCase
         self::assertSame('text/plain', $response->getHeader('Content-Type'));
     }
 
+    /**
+     * @dataProvider successfulScalarEncodingProvider
+     * @param bool|float|null $data
+     */
+    public function testSetJsonPreservesSuccessfulScalarAndNullEncoding($data, string $body): void
+    {
+        self::markTestIncomplete('Remove this marker when implementing the accepted response JSON contract.');
+
+        $response = new Response();
+
+        $result = $response->setJson($data);
+
+        self::assertSame($response, $result);
+        self::assertSame($body, $response->getBody());
+        self::assertSame('application/json', $response->getHeader('Content-Type'));
+    }
+
+    /** @return array<string, array{bool|float|null, string}> */
+    public function successfulScalarEncodingProvider(): array
+    {
+        return [
+            'true' => [true, 'true'],
+            'float' => [1.25, '1.25'],
+            'null' => [null, 'null'],
+        ];
+    }
+
     public function testGetJsonPreservesArraysAndDecodesObjectsAsAssociativeArrays(): void
     {
         self::markTestIncomplete('Remove this marker when implementing the accepted response JSON contract.');
@@ -54,11 +81,24 @@ final class ResponseJsonContractTest extends TestCase
             ['message' => 'accepted', 'nested' => ['count' => 1]],
             $response->getJson()
         );
+
+        $response->setBody('["first","second"]');
+        self::assertSame(['first', 'second'], $response->getJson());
+
+        $response->setBody('[]');
+        self::assertSame([], $response->getJson());
+    }
+
+    public function testGetJsonTreatsUntouchedNullableBodyAsEmpty(): void
+    {
+        self::markTestIncomplete('Remove this marker when implementing the accepted response JSON contract.');
+
+        self::assertSame([], (new Response())->getJson());
     }
 
     /**
      * @dataProvider scalarJsonProvider
-     * @param array<int, bool|int|string> $expected
+     * @param array<int, bool|float|int|string> $expected
      */
     public function testGetJsonWrapsSuccessfulNonNullScalars(string $body, array $expected): void
     {
@@ -70,12 +110,14 @@ final class ResponseJsonContractTest extends TestCase
         self::assertSame($expected, $response->getJson());
     }
 
-    /** @return array<string, array{string, array<int, bool|int|string>}> */
+    /** @return array<string, array{string, array<int, bool|float|int|string>}> */
     public function scalarJsonProvider(): array
     {
         return [
             'false' => ['false', [false]],
+            'true' => ['true', [true]],
             'zero' => ['0', [0]],
+            'float' => ['1.25', [1.25]],
             'empty string' => ['""', ['']],
             'string' => ['"accepted"', ['accepted']],
         ];
