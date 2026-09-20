@@ -45,7 +45,7 @@ final class ResponseJsonContractTest extends TestCase
 
     /**
      * @dataProvider successfulScalarEncodingProvider
-     * @param bool|float|null $data
+     * @param bool|float|int|string|null $data
      */
     public function testSetJsonPreservesSuccessfulScalarAndNullEncoding($data, string $body): void
     {
@@ -60,12 +60,15 @@ final class ResponseJsonContractTest extends TestCase
         self::assertSame('application/json', $response->getHeader('Content-Type'));
     }
 
-    /** @return array<string, array{bool|float|null, string}> */
+    /** @return array<string, array{bool|float|int|string|null, string}> */
     public function successfulScalarEncodingProvider(): array
     {
         return [
+            'false' => [false, 'false'],
             'true' => [true, 'true'],
+            'zero' => [0, '0'],
             'float' => [1.25, '1.25'],
+            'string' => ['accepted', '"accepted"'],
             'null' => [null, 'null'],
         ];
     }
