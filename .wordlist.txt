@@ -25,6 +25,7 @@ npm
 fediverse
 readme
 PHPNomad
+PHPNomad's
 phpnomad
 CLI
 SaaS
@@ -45,4 +46,5 @@ initializer
 middleware
 preconfigured
 Guzzle
+Guzzle's
 guzzlephp
