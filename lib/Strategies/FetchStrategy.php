@@ -5,6 +5,7 @@ namespace PHPNomad\Guzzle\FetchIntegration\Strategies;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use PHPNomad\Guzzle\FetchIntegration\Models\Response;
@@ -67,7 +68,7 @@ class FetchStrategy implements FetchStrategyInterface
      *
      * @param string $method HTTP method (GET, POST, etc.)
      * @param string $url The URL to send the request to.
-     * @param array $options Guzzle options array.
+     * @param array<string, mixed> $options Guzzle options array.
      * @return ResponseInterface The Guzzle response.
      * @throws RestException
      */
@@ -75,10 +76,13 @@ class FetchStrategy implements FetchStrategyInterface
     {
         try {
             return $this->client->request($method, $url, $options);
-        } catch (RequestException|GuzzleException $e) {
-            // Convert Guzzle exception to a generic REST exception
+        } catch (RequestException $e) {
             $statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 500;
             throw new RestException($e->getMessage(), $e->getHandlerContext(), $statusCode);
+        } catch (ConnectException $e) {
+            throw new RestException($e->getMessage(), $e->getHandlerContext(), 500);
+        } catch (GuzzleException $e) {
+            throw new RestException($e->getMessage(), [], 500);
         }
     }
 }

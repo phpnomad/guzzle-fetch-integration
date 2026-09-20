@@ -11,6 +11,7 @@ use PHPNomad\Http\Interfaces\Response as ResponseInterface;
 class Response implements ResponseInterface
 {
     protected int $status;
+    /** @var array<string, string> */
     protected array $headers = [];
     protected ?string $body = null;
     protected ?string $errorMessage = null;
@@ -91,7 +92,8 @@ class Response implements ResponseInterface
      */
     public function setJson($data)
     {
-        $this->body = json_encode($data);
+        $body = json_encode($data, JSON_THROW_ON_ERROR);
+        $this->body = $body;
         $this->setHeader('Content-Type', 'application/json');
         return $this;
     }
@@ -99,11 +101,20 @@ class Response implements ResponseInterface
     /**
      * Get the response body content as a JSON-decoded array.
      *
-     * @return array The JSON-decoded body content.
+     * @return array<mixed> The JSON-decoded body content.
      */
     public function getJson(): array
     {
-        return json_decode($this->body, true) ?? [];
+        if ($this->body === null || $this->body === '') {
+            return [];
+        }
+
+        $decoded = json_decode($this->body, true);
+        if (json_last_error() !== JSON_ERROR_NONE || $decoded === null) {
+            return [];
+        }
+
+        return is_array($decoded) ? $decoded : [$decoded];
     }
 
     /**
@@ -146,6 +157,7 @@ class Response implements ResponseInterface
         ];
     }
 
+    /** @return array<string, string> */
     public function getHeaders(): array
     {
         return $this->headers;
