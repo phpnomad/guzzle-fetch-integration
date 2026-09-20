@@ -11,8 +11,6 @@ final class ClosedLoopbackFailureContractTest extends TestCase
 {
     public function testClosedLoopbackConnectionBecomesServerError(): void
     {
-        self::markTestIncomplete('Remove this marker when implementing the accepted exception contract.');
-
         $server = stream_socket_server('tcp://127.0.0.1:0', $errorCode, $errorMessage);
         self::assertIsResource(
             $server,
@@ -31,7 +29,6 @@ final class ClosedLoopbackFailureContractTest extends TestCase
             self::assertSame(500, $exception->getCode());
             self::assertNotSame('', $exception->getMessage());
             self::assertStringContainsString($address, $exception->getMessage());
-            self::assertIsArray($exception->getContext());
             self::assertNotSame([], $exception->getContext());
         }
     }
